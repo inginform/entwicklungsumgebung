@@ -1,0 +1,4 @@
+.DS_Store
+
+# Das erstellte Setup und alles was im Build-Prozess erzeugt wird, brauchen wir nicht im Repository
+build/*
