@@ -17,6 +17,13 @@ cd pakete
 )
 
 (
+	mkdir -p docker-machine
+	cd docker-machine
+
+	curl -fsSL -o docker-machine.exe "https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine_windows-amd64.exe"
+)
+
+(
 	mkdir -p msysGit
 	cd msysGit
 
