@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<!-- Versionsnummer welche in "Programs and features" angezeigt wird -->
+	<?define VersionNumber="0.0.1"?>
+
+	<!-- URL für add/remove programs -->
+	<?define InfoURL="http://www.inginform.de"?>
+
+	<!-- UpgradeCode muss für alle Updates gleich bleiben! -->
+	<!-- TODO: Raus finden wie das genau mit dem UpgradeCode funktioniert! -->
+	<?define UpgradeCode="3afcd8da-c0b5-40ff-b45c-fe8c377cd9d5"?>
+
+	<Product Id="*" UpgradeCode="$(var.UpgradeCode)" Name="Ing.InForm Entwicklungsumgebung" 
+						Version="$(var.VersionNumber)" Manufacturer="Jan Suchotzki" Language="1031">
+		<Package Id="*" InstallerVersion="200" Compressed="yes" Comments="Windows Installer Package"/>
+
+	  <!-- Folgende Zeile definiert, dass das notwendige cabinet file direkt in das msi integriert wird. -->
+		<Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLDIR" Name="Example">
+
+					<Component Id="DockerCLI_comp">
+						<File Id="DockerCLI" Source="build/pakete/docker/docker.exe" KeyPath="yes"/>
+					</Component>
+
+					<Component Id="DockerMachine_comp">
+						<File Id="DockerCLI" Source="build/pakete/docker-machine/docker-machine.exe" KeyPath="yes"/>
+					</Component>
+
+				</Directory>
+			</Directory>
+		</Directory>
+
+		<Feature Id="DefaultFeature" Level="1">
+			<ComponentRef Id="DockerCLI_comp"/>
+			<ComponentRef Id="DockerMachine_comp"/>
+		</Feature>
+	</Product>
+</Wix>
