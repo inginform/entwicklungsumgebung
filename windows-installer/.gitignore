@@ -2,3 +2,9 @@
 
 # Das erstellte Setup und alles was im Build-Prozess erzeugt wird, brauchen wir nicht im Repository
 build/*
+
+# Vorsichtshalber auch alle von Wix erzeugten Dateien
+*.exe
+*.msi
+*.wixobj
+*.wixpdb
