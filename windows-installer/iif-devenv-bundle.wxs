@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+	<!-- Versionsnummer welche in "Programs and features" angezeigt wird -->
+	<?define VersionNumber="0.0.1"?>
+	<?define AppName="Ing.InForm Entwicklungsumgebung"?>
+	<?define ManufacturerName="Jan Suchotzki"?>
+	<?define Url="http://www.inginform.de"?>
+	
+	<Bundle Name="$(var.AppName)"  Version="$(var.VersionNumber)" Manufacturer="$(var.ManufacturerName)"
+					UpgradeCode="52f7e8da-71b6-4642-90c4-ed498a82f073" AboutUrl="$(var.Url)">
+		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
+		<WixVariable Id="WixStdbaLicenseUrl" Value=""/>
+
+		<Chain>
+			<MsiPackage SourceFile="build\pakete\VirtualBox\VirtualBox_amd64.msi" Compressed="yes" DisplayInternalUI="no">
+				<Payload SourceFile="build\pakete\VirtualBox\common.cab"/>
+			</MsiPackage>
+		</Chain>
+	</Bundle>
+</Wix>
