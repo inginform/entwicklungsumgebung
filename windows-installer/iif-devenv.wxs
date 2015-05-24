@@ -19,16 +19,18 @@
 
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLDIR" Name="Example">
+				<Directory Id="MSYSGIT_INSTALLDIR" Name="Git">
+					<Directory Id="MSYSGIT_BIN" Name="bin">
 
-					<Component Id="DockerCLI_comp">
-						<File Id="DockerCLI" Source="build/pakete/docker/docker.exe" KeyPath="yes"/>
-					</Component>
+						<Component Id="DockerCLI_comp">
+							<File Id="DockerCLI" Source="build/pakete/docker/docker.exe" KeyPath="yes"/>
+						</Component>
 
-					<Component Id="DockerMachine_comp">
-						<File Id="DockerCLI" Source="build/pakete/docker-machine/docker-machine.exe" KeyPath="yes"/>
-					</Component>
+						<Component Id="DockerMachine_comp">
+							<File Id="DockerMachine" Source="build/pakete/docker-machine/docker-machine.exe" KeyPath="yes"/>
+						</Component>
 
+					</Directory>
 				</Directory>
 			</Directory>
 		</Directory>
