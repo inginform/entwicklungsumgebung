@@ -16,6 +16,9 @@
 			<MsiPackage SourceFile="build\pakete\VirtualBox\VirtualBox_amd64.msi" Compressed="yes" DisplayInternalUI="no">
 				<Payload SourceFile="build\pakete\VirtualBox\common.cab"/>
 			</MsiPackage>
+			<ExePackage SourceFile="build\pakete\msysGit\Git.exe" 
+					DetectCondition="ExeDetectedVariable" 
+					InstallCommand="/sp- /verysilent /norestart" />
 		</Chain>
 	</Bundle>
 </Wix>
