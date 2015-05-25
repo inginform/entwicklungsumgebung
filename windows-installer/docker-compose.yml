@@ -3,7 +3,7 @@ DisplayServer:
   ports:
       - 5900:5900
   environment:
-      VNC_PASSWORD: AnotherDammPW
+      VNC_PASSWORD: AnotherDamnPW
 
 Wix:
   image: suchja/wix
