@@ -19,6 +19,7 @@
 			<ExePackage SourceFile="build\pakete\msysGit\Git.exe" 
 					DetectCondition="ExeDetectedVariable" 
 					InstallCommand="/sp- /verysilent /norestart" />
+			<MsiPackage SourceFile="build\iif-devenv.msi" Compressed="yes" DisplayInternalUI="no" />
 		</Chain>
 	</Bundle>
 </Wix>
