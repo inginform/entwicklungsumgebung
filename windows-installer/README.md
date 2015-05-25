@@ -22,8 +22,8 @@ Um das MSI erstellen zu können wird ein Container vom Image `suchja/wix` benöt
 Nachdem alle Container laufen und Du im Wix Container bist, kannst Du mit den folgenden Befehlen das MSI aus den Quellen erstellen:
 
 ```
-wine ../wix/candle.exe -o build/iif-devenv.wixobj iif-devenf.wxs
-wine ../wix/light.exe -o build/iif-devenv.mis -sval build/iif-devenv.wixobj
+wine ../wix/candle.exe -o build/iif-devenv.wixobj iif-devenv.wxs
+wine ../wix/light.exe -o build/iif-devenv.msi -sval build/iif-devenv.wixobj
 ```
 
 Abschliessend kannst Du das erstellte msi direkt im wine prefix zum testen installieren: `wine msiexec /i build/iif-devenv.msi`. Über `wine uninstaller` kannst Du sehen welche Einträge in "Programs and Features" gemacht werden. Dort sollte das Setup nun zu sehen sein. Mit `winefile` kannst Du eine Art Explorer öffnen mit dem Du schauen kannst ob die Dateien an die richtige Stelle installiert wurden.
