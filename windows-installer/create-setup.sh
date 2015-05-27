@@ -5,5 +5,9 @@ if [ ! -d "build" ]; then
 	exit 1
 fi
 
-wine ../wix/candle.exe -o build/iif-devenv-bundle.wixobj iif-devenv-bundle.wxs -ext WixBalExtension
-wine ../wix/light.exe -o build/iif-devenv-setup.exe build/iif-devenv-bundle.wixobj -ext WixBalExtension
+# build MSI
+wine ../wix/candle.exe -o build/iif-devenv.wixobj iif-devenv.wxs
+wine ../wix/light.exe -o build/iif-devenv.msi -sval build/iif-devenv.wixobj
+
+# test msi
+wine msiexec /i build/iif-devenv.msi
