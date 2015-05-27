@@ -17,6 +17,13 @@ cd pakete
 )
 
 (
+	mkdir -p boot2docker
+	cd boot2docker
+
+	curl -fsSL -o boot2docker.iso "https://github.com/boot2docker/boot2docker/releases/download/v${BOOT2DOCKER_VERSION}/boot2docker.iso"
+)
+
+(
 	mkdir -p docker-machine
 	cd docker-machine
 
