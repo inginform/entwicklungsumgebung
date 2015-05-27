@@ -20,6 +20,15 @@
 
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
+				
+				<Directory Id="IIF_INSTALLDIR" Name="IngInForm">
+					<Directory Id="IIF_DEVENV_INSTALLDIR" Name="Entwicklungsumgebung">
+						<Component Id="DevEnvStart_comp">
+							<File Id="DevEnvStart" Source="start.sh" KeyPath="yes"/>
+						</Component>
+					</Directory>
+				</Directory>
+
 				<Directory Id="MSYSGIT_INSTALLDIR" Name="Git">
 					<Directory Id="MSYSGIT_BIN" Name="bin">
 
@@ -39,6 +48,7 @@
 		<Feature Id="DefaultFeature" Level="1">
 			<ComponentRef Id="DockerCLI_comp"/>
 			<ComponentRef Id="DockerMachine_comp"/>
+			<ComponentRef Id="DevEnvStart_comp"/>
 		</Feature>
 	</Product>
 </Wix>
