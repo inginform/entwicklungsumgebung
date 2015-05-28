@@ -4,6 +4,15 @@ set -e
 # clear the MSYS MOTD
 clear
 
+# copy boot2docker.iso, if required
+ISO="$HOME/.docker/machine/cache/boot2docker.iso"
+
+if [ ! -e "$ISO" ]; then
+	echo 'not sure how to update ISO'
+	mkdir -p "$(dirname "$ISO")"
+	cp ./boot2docker.iso "$ISO"
+fi
+
 # Let's start docker-machine
 echo 'Verifying that docker-machine is installed ...'
 docker-machine -v
