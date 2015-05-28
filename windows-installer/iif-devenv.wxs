@@ -26,6 +26,9 @@
 						<Component Id="DevEnvStart_comp">
 							<File Id="DevEnvStart" Source="start.sh" KeyPath="yes"/>
 						</Component>
+						<Component Id="Boot2DockerIso_comp">
+							<File Id="Boot2DockerIso" Source="build/pakete/boot2docker/boot2docker.iso" KeyPath="yes"/>
+						</Component>
 					</Directory>
 				</Directory>
 
@@ -49,6 +52,7 @@
 			<ComponentRef Id="DockerCLI_comp"/>
 			<ComponentRef Id="DockerMachine_comp"/>
 			<ComponentRef Id="DevEnvStart_comp"/>
+			<ComponentRef Id="Boot2DockerIso_comp"/>
 		</Feature>
 	</Product>
 </Wix>
