@@ -18,7 +18,7 @@
 			</MsiPackage>
 			<ExePackage SourceFile="build\pakete\msysGit\Git.exe" 
 					DetectCondition="ExeDetectedVariable" 
-					InstallCommand="/sp- /verysilent /norestart /COMPONENTS='ext,ext\reg,ext\reg\shellhere,ext\reg\guihere,assoc,assoc_sh'" />
+					InstallCommand="/sp- /verysilent /norestart /COMPONENTS=&quot;icons,icons\desktop,ext,ext\reg,ext\reg\shellhere,ext\reg\guihere,assoc,assoc_sh&quot;" />
 			<MsiPackage SourceFile="build\iif-devenv.msi" Compressed="yes" DisplayInternalUI="no" />
 		</Chain>
 	</Bundle>
