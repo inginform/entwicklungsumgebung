@@ -46,6 +46,12 @@
 					</Directory>
 				</Directory>
 			</Directory>
+			<Directory Id="DesktopFolder">
+				<Component Id="DesktopShortcut_comp" Guid="4ffe6d89-1b17-42a3-aa30-5391315fb101">
+					<Shortcut Id="StartApplicationDesktopShortcut" Name="IIF DevEnv" Description="Startet die IIF Entwicklungsumgebung"
+						Target="[#DevEnvStart]" WorkingDirectory="IIF_DEVENV_INSTALLDIR"/>
+				</Component>
+			</Directory>
 		</Directory>
 
 		<Feature Id="DefaultFeature" Level="1">
@@ -53,6 +59,7 @@
 			<ComponentRef Id="DockerMachine_comp"/>
 			<ComponentRef Id="DevEnvStart_comp"/>
 			<ComponentRef Id="Boot2DockerIso_comp"/>
+			<ComponentRef Id="DesktopShortcut_comp"/>
 		</Feature>
 	</Product>
 </Wix>
