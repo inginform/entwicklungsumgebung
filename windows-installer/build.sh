@@ -10,6 +10,9 @@ build_bundle() {
 
 build_setup() {
 	docker-compose run Wix ./create-setup.sh
+	docker-compose stop
+	docker-compose rm -f DisplayServer
+	docker ps -a
 }
 
 if [ ! -d "build" ]; then
