@@ -20,3 +20,8 @@ echo
 
 echo 'Creating new docker environment with docker-machine. This may take some minutes ...'
 docker-machine create --driver virtualbox iif-devenv
+
+echo 'Set environment variables for Docker'
+eval "$(docker-machine env iif-devenv)"
+
+echo 'Done! IIF DevEnv is up and running'
