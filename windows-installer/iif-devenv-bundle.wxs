@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
 
 	<!-- Versionsnummer welche in "Programs and features" angezeigt wird -->
 	<?define VersionNumber="0.0.1"?>
@@ -9,8 +9,11 @@
 	
 	<Bundle Name="$(var.AppName)"  Version="$(var.VersionNumber)" Manufacturer="$(var.ManufacturerName)"
 					UpgradeCode="52f7e8da-71b6-4642-90c4-ed498a82f073" AboutUrl="$(var.Url)">
-		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
-		<WixVariable Id="WixStdbaLicenseUrl" Value=""/>
+		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense">
+			<bal:WixStandardBootstrapperApplication
+				LicenseUrl="https://github.com/inginform/entwicklungsumgebung/blob/master/LICENSE.md"
+				/>
+		</BootstrapperApplicationRef>
 
 		<Chain>
 			<MsiPackage SourceFile="build\pakete\VirtualBox\VirtualBox_amd64.msi" Compressed="yes" DisplayInternalUI="no">
