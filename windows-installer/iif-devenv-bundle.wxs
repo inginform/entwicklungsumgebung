@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+		xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+		xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
 
 	<!-- Versionsnummer welche in "Programs and features" angezeigt wird -->
 	<?define VersionNumber="0.0.1"?>
@@ -15,13 +17,18 @@
 				/>
 		</BootstrapperApplicationRef>
 
+		<util:RegistrySearch Root="HKLM" Key="SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Git_is1" Result="exists" Variable="GIT_IS_INSTALLED" />
+		<util:RegistrySearch Root="HKLM" Key="SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Git_is1" Value="QuietUninstallString" Result="value" Variable="GIT_UNINSTALL_STRING" />
+
 		<Chain>
 			<MsiPackage SourceFile="build\pakete\VirtualBox\VirtualBox_amd64.msi" Compressed="yes" DisplayInternalUI="no">
 				<Payload SourceFile="build\pakete\VirtualBox\common.cab"/>
 			</MsiPackage>
 			<ExePackage SourceFile="build\pakete\msysGit\Git.exe" 
 					DetectCondition="ExeDetectedVariable" 
-					InstallCommand="/sp- /verysilent /norestart /COMPONENTS=&quot;ext,ext\reg,ext\reg\shellhere,ext\reg\guihere,assoc,assoc_sh&quot;" />
+					InstallCommand="/sp- /verysilent /norestart /COMPONENTS=&quot;ext,ext\reg,ext\reg\shellhere,ext\reg\guihere,assoc,assoc_sh&quot;"
+					UninstallCommand="GIT_UNINSTALL_STRING"
+					InstallCondition="GIT_IS_INSTALLED = 1" />
 			<MsiPackage SourceFile="build\iif-devenv.msi" Compressed="yes" DisplayInternalUI="no" />
 		</Chain>
 	</Bundle>
