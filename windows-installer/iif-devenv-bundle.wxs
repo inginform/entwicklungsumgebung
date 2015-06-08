@@ -12,7 +12,7 @@
 	<Bundle Name="$(var.AppName)"  Version="$(var.VersionNumber)" Manufacturer="$(var.ManufacturerName)"
 					UpgradeCode="52f7e8da-71b6-4642-90c4-ed498a82f073" AboutUrl="$(var.Url)">
 		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
-			<bal:WixStandardBootstrapperApplication LicenseFile="Lizenz.rtf" />
+			<bal:WixStandardBootstrapperApplication LicenseFile="license.rtf" />
 		</BootstrapperApplicationRef>
 
 		<util:RegistrySearch Root="HKLM" Key="SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Git_is1" Result="exists" Variable="GIT_IS_INSTALLED" />
